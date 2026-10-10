@@ -10,11 +10,14 @@ public:
 
     BMESPIInterface() = default;
 
-    // Code here!
+    bool begin();
+    float readTemperature();
+    float readPressure();
+    float readHumidity();
 
 private:
 
-   // Code here!
+    Adafruit_BME280 sensor;
 
 };
 using BMESPIInterfaceInstance = etl::singleton<BMESPIInterface>;
