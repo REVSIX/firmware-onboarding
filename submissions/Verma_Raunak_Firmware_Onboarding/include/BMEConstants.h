@@ -1,5 +1,7 @@
 #pragma once
+#include <Arduino.h>
 
-namespace BMEConstants {
-// Add shared sensor and LED constants here.
+namespace BMEConstants
+{
+    // constants here!
 }
