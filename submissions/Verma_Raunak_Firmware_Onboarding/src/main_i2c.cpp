@@ -1,9 +1,21 @@
 #include <Arduino.h>
+#include "BMEI2CInterface.h"
+#include "LEDController.h"
 
 void setup() {
-    // Initialize the I2C sensor and LED here.
+    Serial.begin(115200);
+    pinMode(LED_BUILTIN, OUTPUT);
+    BMEI2CInterfaceInstance::create();
+    LEDControllerInstance::create();
+
+    if (!BMEI2CInterfaceInstance::instance().begin()) {
+        Serial.println("BME280 Sensor Disconnected!");
+        while (true) {} // Prevent Loop from running
+    }
 }
 
 void loop() {
-    // Read the sensor and update the LED here.
+    float temperature = BMEI2CInterfaceInstance::instance().readTemperature();
+    LEDControllerInstance::instance().update(temperature, millis());
+    digitalWrite(LED_BUILTIN,LEDControllerInstance::instance().isOn() ? HIGH: LOW);
 }
