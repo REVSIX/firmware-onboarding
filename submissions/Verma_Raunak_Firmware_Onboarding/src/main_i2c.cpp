@@ -17,5 +17,6 @@ void setup() {
 void loop() {
     float temperature = BMEI2CInterfaceInstance::instance().readTemperature();
     LEDControllerInstance::instance().update(temperature, millis());
+    Serial.println(temperature);
     digitalWrite(LED_BUILTIN,LEDControllerInstance::instance().isOn() ? HIGH: LOW);
 }
