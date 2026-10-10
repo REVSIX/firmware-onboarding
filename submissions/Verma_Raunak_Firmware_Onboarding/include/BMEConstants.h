@@ -3,5 +3,8 @@
 
 namespace BMEConstants
 {
-    // constants here!
+    constexpr float coolTemperatureC = 15.0f;
+    constexpr float warmTemperatureC = 35.0f;
+    constexpr uint32_t slowBlinkIntervalMs = 1000;
+    constexpr uint32_t fastBlinkIntervalMs = 100;
 }
