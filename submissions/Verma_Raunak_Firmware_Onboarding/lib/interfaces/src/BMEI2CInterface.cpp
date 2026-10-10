@@ -2,7 +2,8 @@
 
 bool BMEI2CInterface::begin()
 {
-    return sensor.begin(BME280_ADDRESS) || sensor.begin(BME280_ADDRESS_ALTERNATE);
+    return sensor.begin(BMEConstants::i2cPrimaryAddress) ||
+           sensor.begin(BMEConstants::i2cAlternateAddress);
 }
 
 float BMEI2CInterface::readTemperature()

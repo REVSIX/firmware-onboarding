@@ -17,7 +17,7 @@ public:
 
 private:
 
-    Adafruit_BME280 sensor;
+    Adafruit_BME280 sensor{BMEConstants::spiChipSelectPin};
 
 };
 using BMESPIInterfaceInstance = etl::singleton<BMESPIInterface>;

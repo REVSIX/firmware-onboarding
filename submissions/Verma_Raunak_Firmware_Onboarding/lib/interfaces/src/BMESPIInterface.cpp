@@ -1,7 +1,7 @@
 #include "BMESPIInterface.h"
 bool BMESPIInterface::begin()
 {
-    return sensor.begin(BME280_ADDRESS) || sensor.begin(BME280_ADDRESS_ALTERNATE);
+    return sensor.begin();
 }
 
 float BMESPIInterface::readTemperature()
