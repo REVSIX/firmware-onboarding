@@ -10,11 +10,14 @@ public:
 
     BMEI2CInterface() = default;
 
-    // Code here!
+    bool begin();
+    float readTemperature();
+    float readPressure();
+    float readHumidity();
 
 private:
 
-   // Code here!
-
+    Adafruit_BME280 sensor;
+    
 };
 using BMEI2CInterfaceInstance = etl::singleton<BMEI2CInterface>;
